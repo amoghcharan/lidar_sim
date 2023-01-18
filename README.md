@@ -1,4 +1,9 @@
-# lidar_sim
-A 2D LiDAR visualization for simulated robots in MATLAB
+# LiDAR Sim
 
-![Example of LiDAR function with Robotarium robots](example_plot.png "Example of LiDAR function with Robotarium robots")
+- A 2D LiDAR visualization for simulated robots in MATLAB at the Georgia Tech Robotarium
+
+- Ability to modify distance, angular resolution, and Gaussian distortion of points
+
+- Soon to work with any N-vertice shape and multiple robots simultaneously
+
+![Example of LiDAR function with Robotarium robots](lidar_mov.gif "Example of LiDAR function with Robotarium robots")
