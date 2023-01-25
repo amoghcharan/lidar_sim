@@ -24,30 +24,29 @@ v4 = [1.6, 1];
 intpoints = [];
 
 % Add dynamic rectangles based on each robot position
-% currrect = {};
-%
-% for c = 1:N
-%     xc = x(1,c)
-%     yc = x(2,c)
-%     ac = x(3,c)
-%     theta = [
-%         ((pi/4) + ac);
-%         ((3*pi/4) + ac);
-%         ((5*pi/4) + ac);
-%         ((7*pi/4) + ac);
-%         ]
-%     for t = 1:4
-%         if theta(t) > 2*pi
-%             theta(t) = theta(t) - (2*pi)
-%         end
-%     end
-%     vc1 = [xc + cos(theta(1)), yc + sin(theta(1))];
-%     vc2 = [xc + cos(theta(2)), yc + sin(theta(2))];
-%     vc3 = [xc + cos(theta(3)), yc + sin(theta(3))];
-%     vc4 = [xc + cos(theta(4)), yc + sin(theta(4))];
-%     currrect = {currrect; [vc1, vc2]; [vc2, vc3]; [vc3, vc4]; [vc4, vc1]}
-%
-% end
+for c = 1:N
+    xc = x(1,c);
+    yc = x(2,c);
+    ac = x(3,c);
+    theta = [
+        ((pi/4) + ac);
+        ((3*pi/4) + ac);
+        ((5*pi/4) + ac);
+        ((7*pi/4) + ac);
+        ];
+    for t = 1:4
+        if theta(t) > 2*pi
+            theta(t) = theta(t) - (2*pi);
+        end
+    end
+    rd = 0.05;
+    vc1 = [xc + rd*cos(theta(1)), yc + rd*sin(theta(1))];
+    vc2 = [xc + rd*cos(theta(2)), yc + rd*sin(theta(2))];
+    vc3 = [xc + rd*cos(theta(3)), yc + rd*sin(theta(3))];
+    vc4 = [xc + rd*cos(theta(4)), yc + rd*sin(theta(4))];
+    new_rect = {[vc1, vc2]; [vc2, vc3]; [vc3, vc4]; [vc4, vc1]};
+    curr_rect{c} = new_rect;
+end
 
 % Define x,y of each robot
 for h = 1:N
@@ -72,6 +71,14 @@ for h = 1:N
 
         % All obstacle lines
         vcomb = [v1, v2 ; v1, v3; v2, v4; v3, v4]; %rect(1,1:2), rect(2,1:2); rect(1,1:2), rect(3,1:2); rect(4,1:2), rect(3,1:2); rect(4,1:2), rect(2,1:2)];
+
+        % Find all other robot's boundaries
+        vdy = {curr_rect{1:end ~=h}};
+        for rob =1:length(vdy)
+            for siz=1:4
+                vcomb = [vcomb; vdy{rob}{siz}];
+            end
+        end
 
         for m = 1:sz(1)
 
@@ -150,5 +157,4 @@ for h = 1:N
     end
 
 end
-
 
