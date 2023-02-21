@@ -1,6 +1,6 @@
 # LiDAR Sim
 
-####:fireworks: A 2D LiDAR visualization for simulated robots in MATLAB at the Georgia Tech Robotarium
+#### :fireworks: A 2D LiDAR visualization for simulated robots in MATLAB at the Georgia Tech Robotarium
 
 #### :wavy_dash: Ability to modify distance, angular resolution, and Gaussian distortion of points
 
