@@ -5,8 +5,8 @@
 function output = LIDAR(x, N, ang_Res, dist, obs, error)
 
 % First point generated is at 0 degrees to the right
-% x1 is the current robot's x position
-% y1 is the current robot's y position
+% x is the current robot's x,y position
+% N is the number of active robots
 % ang_Res is how many 360/N rays to be generated
 % dist is the maximum distance range of a ray
 % obs are predefined obstacles given by its vertices
