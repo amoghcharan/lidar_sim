@@ -10,14 +10,36 @@ Usage:
 
 `LIDAR(x, N, ang_Res, dist, obs, error)`
 
-- x is the current robot's x,y position
-- N is the number of active robots
-- ang_Res is how many 360/N rays to be generated
-- dist is the maximum distance range of a ray
-- obs are predefined obstacles given by its vertices
-- error is defined as either 'None' or 'Gaussian'
-
-
+- `x` is the current robot's x,y position
+- `N` is the number of active robots
+- `ang_Res` is how many 360/N rays to be generated
+- `dist` is the maximum distance range of a ray
+- `obs` are predefined obstacles given by its vertices
+- `error` is defined as either 'None' or 'Gaussian'
 
 #
 ![Example of LiDAR function with Robotarium robots](images/lidar_mov_2.gif "Example of LiDAR function with Robotarium robots")
+
+#
+Warning:
+* As `N` number of robots increase, `ang_res` and `dist` need to be lowered to ensure real-time operation on Robotarium
+* See the following table for sample runs and respective real-time run speed
+* Point Cloud Test:
+
+| N | ang_Res | dist | Time |
+| -- | -- | -- | -- |
+| 1 | 1 | 0.5 | Real Time |
+| 2 | 1 | 0.5 | Real Time |
+| 3 | 1 | 0.5 | Real Time |
+| 4 | 1 | 0.5 | Lag |
+| 1 | 5 | 0.5 | Real Time |
+| 2 | 5 | 0.5 | Real Time |
+| 3 | 5 | 0.5 | Real Time |
+| 4 | 5 | 0.5 | Real Time |
+| 5 | 5 | 0.5 | Real Time |
+| 6 | 5 | 0.5 | Lag |
+| 8 | 18 | 0.5 | Real Time |
+| 10 | 18 | 0.5 | Real Time |
+| 12 | 18 | 0.5 | Lag |
+
+
