@@ -1,9 +1,9 @@
 # LiDAR Sim
 
-- A 2D LiDAR visualization for simulated robots in MATLAB at the Georgia Tech Robotarium
+:fireworks: A 2D LiDAR visualization for simulated robots in MATLAB at the Georgia Tech Robotarium
 
-- Ability to modify distance, angular resolution, and Gaussian distortion of points
+:wavy_dash: Ability to modify distance, angular resolution, and Gaussian distortion of points
 
-- Soon to work with any N-vertice shape and multiple robots simultaneously
+:mount_fuji:Works with any N-vertice shape and multiple robots simultaneously
 #
-![Example of LiDAR function with Robotarium robots](lidar_mov_2.gif "Example of LiDAR function with Robotarium robots")
+![Example of LiDAR function with Robotarium robots](images/lidar_mov_2.gif "Example of LiDAR function with Robotarium robots")

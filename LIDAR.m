@@ -2,14 +2,15 @@
 % lidar range and importable obstacles
 % Amogh Chinnakonda
 
-function intpoints = LIDAR(x, N, ang_Res, dist, obs)
+function output = LIDAR(x, N, ang_Res, dist, obs, error)
 
 % First point generated is at 0 degrees to the right
 % x1 is the current robot's x position
 % y1 is the current robot's y position
 % ang_Res is how many 360/N rays to be generated
 % dist is the maximum distance range of a ray
-% rect is a rectangular obstacle given by its vertices
+% obs are predefined obstacles given by its vertices
+% error is defined as either 'None' or 'Gaussian'
 
 % Number of LiDAR rays
 r = 0:ang_Res:360;
@@ -22,6 +23,7 @@ v4 = [1.6, 1];
 
 % Empty array of shortest intersection vectors
 intpoints = [];
+gauspoints = [];
 
 % Add dynamic rectangles based on each robot position
 for c = 1:N
@@ -39,7 +41,7 @@ for c = 1:N
             theta(t) = theta(t) - (2*pi);
         end
     end
-    rd = 0.05;
+    rd = 0.15;
     vc1 = [xc + rd*cos(theta(1)), yc + rd*sin(theta(1))];
     vc2 = [xc + rd*cos(theta(2)), yc + rd*sin(theta(2))];
     vc3 = [xc + rd*cos(theta(3)), yc + rd*sin(theta(3))];
@@ -144,17 +146,29 @@ for h = 1:N
         tf = isempty(intpoint);
         if tf == 0
             % [int_x, int_y, int_dist]
-            intpoints = [intpoints; [intpoint(1), intpoint(2), M]];
+            intpoints = [intpoints; [intpoint(1), intpoint(2), M, i, h]];
         else
             intpoints = [intpoints];
         end
 
-
         % Add Gausian Distortion to points
-    %     for l = 1:length(intpoints(:,1))
-    %         intang = [
+        zbounds = [-0.5,1];
+        z = zbounds(1) + (zbounds(2)-zbounds(1)) .* rand(1,1);              % Random z-score between bounds
+        sigma = 0.05;                                                       % Standard Deviation
+        if tf == 0
+            for p = 1:length(intpoints(:,3))
+                dist_g = intpoints(p,3) + z*sigma;
+                gauspoints(p,1) = x(1,(intpoints(p,5))) + dist_g*cosd( r(intpoints(p,4)) );
+                gauspoints(p,2) = x(2,(intpoints(p,5))) + dist_g*sind( r(intpoints(p,4)) );
+            end
+        end
 
+        err = strcmp(error, 'Gaussian');
+        if err == 1
+            output = gauspoints;
+        else
+            output = intpoints(:,1:2);
+        end
     end
 
 end
-

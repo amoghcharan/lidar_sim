@@ -76,7 +76,7 @@ while(~init_checker(x, final_goal_points))
     dxu = unicycle_barrier_certificate(dxu, x);
 
     % Call LIDAR to find all plottable intersection points
-    scan = LIDAR(x, N, 36, 0.5, obs);
+    scan = LIDAR(x, N, 18, 0.5, obs, 'Gaussian');
 
     % Plot intersection points
     [numP,numCols] = size(scan);
