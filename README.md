@@ -17,6 +17,11 @@ Usage:
 - `obs` are predefined obstacles given by its vertices
 - `error` is defined as either 'None' or 'Gaussian'
 
+returns
+- `output`: a matrix of all calculated intersection points
+
+Refer to the `go_to_pose.m` file for an example of the function call, obstacle initialization, and plotting routine
+
 #
 ![Example of LiDAR function with Robotarium robots](images/lidar_mov_2.gif "Example of LiDAR function with Robotarium robots")
 
