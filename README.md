@@ -26,11 +26,31 @@ Refer to the `go_to_pose.m` file for an example of the function call, obstacle i
 ![Example of LiDAR function with Robotarium robots](images/lidar_mov_2.gif "Example of LiDAR function with Robotarium robots")
 
 #
+
+Plotting: 
+
+- Initialize Plot of LIDAR points before experiment loop:
+```
+RGB = [255 0 0]/256;  
+scan = [0,0];  
+h = scatter(scan(:,1), scan(:,2), 72, RGB, 'filled'); 
+```
+- In loop plotting update:
+```
+[numP,numCols] = size(scan);     
+for g = 1:numP
+    set(h,'XData',scan(:,1),'YData',scan(:,2));      
+end
+```
+
+
+#
 Warning:
+* The real-time run speed of this function is variable with the amount of intersections that are computed and plotted, thus simpler (less robots, less obstacles) experiments are more likely to run 
 * As `N` number of robots increase, `ang_res` and `dist` need to be lowered to ensure real-time operation on Robotarium
 * See the following table for sample runs and respective real-time run speed
-* Point Cloud Test:
 
+### Point Cloud Test:
 | N | ang_Res | dist | Time w/ Plotting | Time w/o Plotting |
 | -- | -- | -- | -- | -- |
 | 1 | 1 | 0.5 | 0.0295 | 0.0331|
