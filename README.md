@@ -31,8 +31,8 @@ Warning:
 * See the following table for sample runs and respective real-time run speed
 * Point Cloud Test:
 
-| N | ang_Res | dist | Time w/ Plotting | Time w/o Plotting
-| -- | -- | -- | -- |
+| N | ang_Res | dist | Time w/ Plotting | Time w/o Plotting |
+| -- | -- | -- | -- | -- |
 | 1 | 1 | 0.5 | 0.0295 | |
 | 2 | 1 | 0.5 | 0.0414 | 0.0347 |
 | 3 | 1 | 0.5 | Real Time | |
