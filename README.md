@@ -31,20 +31,20 @@ Warning:
 * See the following table for sample runs and respective real-time run speed
 * Point Cloud Test:
 
-| N | ang_Res | dist | Time |
+| N | ang_Res | dist | Time w/ Plotting | Time w/o Plotting
 | -- | -- | -- | -- |
-| 1 | 1 | 0.5 | Real Time |
-| 2 | 1 | 0.5 | Real Time |
-| 3 | 1 | 0.5 | Real Time |
-| 4 | 1 | 0.5 | Lag |
-| 1 | 5 | 0.5 | Real Time |
-| 2 | 5 | 0.5 | Real Time |
-| 3 | 5 | 0.5 | Real Time |
-| 4 | 5 | 0.5 | Real Time |
-| 5 | 5 | 0.5 | Real Time |
-| 6 | 5 | 0.5 | Lag |
-| 8 | 18 | 0.5 | Real Time |
-| 10 | 18 | 0.5 | Real Time |
-| 12 | 18 | 0.5 | Lag |
+| 1 | 1 | 0.5 | 0.0295 | |
+| 2 | 1 | 0.5 | 0.0414 | 0.0347 |
+| 3 | 1 | 0.5 | Real Time | |
+| 4 | 1 | 0.5 | Lag | |
+| 1 | 5 | 0.5 | Real Time | |
+| 2 | 5 | 0.5 | Real Time | |
+| 3 | 5 | 0.5 | Real Time | |
+| 4 | 5 | 0.5 | Real Time | |
+| 5 | 5 | 0.5 | Real Time | |
+| 6 | 5 | 0.5 | Lag | |
+| 8 | 18 | 0.5 | Real Time | |
+| 10 | 18 | 0.5 | Real Time | |
+| 12 | 18 | 0.5 | Lag | |
 
 
