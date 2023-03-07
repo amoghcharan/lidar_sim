@@ -9,7 +9,7 @@ from matplotlib.animation import FuncAnimation
 import time
 
 # Instantiate Robotarium object
-N = 3
+N = 1
 initial_conditions = np.array(np.mat('1 0.5 -0.5 0 0.28; 0.8 -0.3 -0.75 0.1 0.34; 0 0 0 0 0'))
 
 r = robotarium.Robotarium(number_of_robots=N, show_figure=True, initial_conditions=generate_initial_conditions(N), sim_in_real_time=False)
@@ -171,7 +171,7 @@ while (np.size(at_pose(np.vstack((x_si,x[2,:])), goal_points, rotation_error=100
         # INSERT CODE HERE
 
         # Main Ray Generating Algorithm
-        print(f"Current Robot is: {h}")
+        # print(f"Current Robot is: {h}")
 
         # All intersection points on obstacle lines
         midpoints = np.empty((0,2), float)
@@ -179,9 +179,9 @@ while (np.size(at_pose(np.vstack((x_si,x[2,:])), goal_points, rotation_error=100
         # All obstacles lines
 
         # Find all other robot's boundaries
-        print(f"Before Delete: {curr_rect}")
+        # print(f"Before Delete: {curr_rect}")
         vdy = np.delete(curr_rect, [(h*4), (h*4)+1, (h*4)+2, (h*4)+3], axis=0)
-        print(f"After: {vdy}")
+        # print(f"After: {vdy}")
         vcomb = np.append(vcomb, vdy, axis=0)
         # print(f"VComb: {vcomb}")
 
@@ -242,7 +242,7 @@ while (np.size(at_pose(np.vstack((x_si,x[2,:])), goal_points, rotation_error=100
                 # print(f"New int: {new_int.shape}")
 
                 intpoints = np.append(intpoints, new_int, axis=0)
-                print(f"Intpoints: {intpoints}")
+                # print(f"Intpoints: {intpoints}")
 
             # Add Gausian Distortion to points
             zbounds = [0, 0.5]
