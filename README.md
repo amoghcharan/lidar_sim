@@ -4,7 +4,7 @@
 
 #### :wavy_dash: Ability to modify distance, angular resolution, and Gaussian distortion of points
 
-#### :mount_fuji:Works with any N-vertice shape and multiple robots simultaneously
+#### :mount_fuji: Works with any N-vertice shape and multiple robots simultaneously
 
 Usage:
 
@@ -18,7 +18,7 @@ Usage:
 - `error` is defined as either 'None' or 'Gaussian'
 
 returns
-- `output`: a matrix of all calculated intersection points
+- `output`: a matrix of all calculated intersection points [x,y]
 
 Refer to the `go_to_pose.m` file for an example of the function call, obstacle initialization, and plotting routine
 
@@ -51,7 +51,7 @@ Warning:
 * See the following table for sample runs and respective real-time run speed
 
 ### Point Cloud Test:
-| N | ang_Res | dist | Time w/ Plotting | Time w/o Plotting |
+| N | ang_Res | dist | Time w/ Plotting (s) | Time w/o Plotting (s) |
 | -- | -- | -- | -- | -- |
 | 1 | 1 | 0.5 | 0.0295 | 0.0331|
 | 2 | 1 | 0.5 | 0.0414 | 0.0347 |
